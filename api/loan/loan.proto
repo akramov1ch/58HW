@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = "/pkg/loan";
+
+service LoanService {
+    rpc IssueLoan(IssueLoanRequest) returns (IssueLoanResponse);
+    rpc ReturnLoan(ReturnLoanRequest) returns (ReturnLoanResponse);
+}
+
+message IssueLoanRequest {
+    string book_id = 1;
+    string user_id = 2;
+}
+
+message IssueLoanResponse {
+    string loan_id = 1;
+}
+
+message ReturnLoanRequest {
+    string loan_id = 1;
+}
+
+message ReturnLoanResponse {
+    bool success = 1;
+}
